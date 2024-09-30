@@ -1,114 +1,74 @@
 import React from 'react';
+import notification from '../assets/notification.png';
+import messages from '../assets/message.png';
+import profile from '../assets/dp.png';
+import downArrow from '../assets/dwonarrow.png';
+import search from '../assets/searchIcon.png';
 
-function Topbar () {
+export default function Topbar() {
   return (
-    <div className="flex items-center justify-between bg-white px-4 py-2 shadow-md">
+    <nav className="flex items-center p-2 sm:p-4 justify-between bg-white shadow-sm fixed top-0 h-16 z-30 transition-all duration-300 ease-in-out left-0 right-0 w-full">
       {/* Left Side - Search Bar */}
-      <div className="flex items-center w-1/3">
-        <input
-          type="text"
-          placeholder="Search"
-          className="w-full py-2 pl-4 pr-10 rounded-full bg-gray-100 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <button className="absolute right-0 mr-4">
-          <svg
-            className="w-5 h-5 text-gray-500"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M10 14l2-2m0 0l2-2m-2 2V4m0 10l-2-2m2 2l2 2m-2-2h10"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Right Side - Icons and Profile */}
-      <div className="flex items-center space-x-4">
-        {/* Notification Icon */}
-        <button className="relative">
-          <svg
-            className="w-6 h-6 text-gray-600"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 16h-1v-4h1m0 0h1m0 0v-4m-1 4l2-2m0 4v-4m-2 2m0 2h-1m0-4v4m1 2h1"
-            />
-          </svg>
-          <span className="absolute top-0 right-0 block w-2 h-2 bg-red-600 rounded-full"></span>
-        </button>
-
-        {/* Messages Icon */}
-        <button>
-          <svg
-            className="w-6 h-6 text-gray-600"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M8 11V9a1 1 0 011-1h4a1 1 0 011 1v2m-1-4v12a1 1 0 01-1 1h-4a1 1 0 01-1-1V9m4 0h1m-6 0h6m-2 4v2m-2-4v6"
-            />
-          </svg>
-        </button>
-
-        {/* Profile Picture and Name */}
-        <div className="flex items-center space-x-2">
-          {/* On desktop, show DP and name */}
-          <div className="hidden md:flex items-center space-x-2">
+      <div className="flex items-center w-full max-w-[140px] sm:max-w-xs md:max-w-md ml-16 lg:ml-64 lg:max-w-lg md:pl-[25px]">
+        <div className="relative w-full ml-[-13px]">
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full pl-2 pr-8 sm:pl-4 sm:pr-10 py-1 sm:py-2 bg-[#FAFAFA] text-sm sm:text-base rounded-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <div className="absolute inset-y-0 right-0 pr-2 sm:pr-3 flex items-center pointer-events-none">
             <img
-              src="profile.jpg" // Replace with your DP source
-              alt="Profile"
-              className="w-8 h-8 rounded-full"
-            />
-            <span className="text-gray-600">Admin John</span>
-          </div>
-
-          {/* On mobile, show only DP */}
-          <div className="md:hidden">
-            <img
-              src="profile.jpg" // Replace with your DP source
-              alt="Profile"
-              className="w-8 h-8 rounded-full"
+              src={search}
+              alt="Search"
+              width={16}
+              height={16}
+              className="text-gray-400"
             />
           </div>
-
-          {/* Down Arrow */}
-          <button>
-            <svg
-              className="w-5 h-5 text-gray-600"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
         </div>
       </div>
-    </div>
-  );
-};
 
-export default Topbar;
+      <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-5">
+
+        <button className="relative p-1 sm:p-2">
+          <img
+            src={notification}
+            alt="Notifications"
+            width={20}
+            height={20}
+            className="w-5 h-5 sm:w-6 sm:h-6"
+          />
+        </button>
+
+        <button className="relative p-1 sm:p-2">
+          <img
+            src={messages}
+            alt="Messages"
+            width={20}
+            height={20}
+            className="w-5 h-5 sm:w-6 sm:h-6"
+          />
+        </button>
+
+        <div className="flex items-center space-x-1 sm:space-x-2">
+          <img
+            src={profile}
+            alt="Profile"
+            width={32}
+            height={32}
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
+          />
+          <span className="font-medium text-xs sm:text-sm md:text-base hidden md:inline">Vishnu</span>
+
+          <img
+            src={downArrow}
+            alt="Dropdown"
+            width={16}
+            height={16}
+            className="w-4 h-4 sm:w-5 sm:h-5"
+          />
+        </div>
+      </div>
+    </nav>
+  );
+}

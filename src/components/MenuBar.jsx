@@ -1,9 +1,9 @@
-import Topbar from './TopBar'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../assets/logo.png'  // Desktop logo
-import tabletLogo from '../assets/mainLogo.png' // Tablet logo
+import { Menu, X } from 'lucide-react'
+import Topbar from './TopBar'
+import logo from '../assets/logo.png'
+import tabletLogo from '../assets/mainLogo.png'
 
 // Import PNG icons
 import dashboardIcon from '../assets/dash.png'
@@ -29,15 +29,18 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="md:hidden p-2 bg-[#FAFAFA] max-w-64">
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      <div className="fixed top-0 left-0 z-50 md:hidden">
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 m-2 bg-white rounded-md"
+        >
+          {isOpen ? <X className="h-6 w-6 text-slate-600" /> : <Menu className="h-6 w-6 text-slate-600" />}
         </button>
       </div>
 
       <div
         className={`
-          fixed top-0 left-0 h-full bg-[#FAFAFA] shadow-lg transition-all duration-300 ease-in-out z-50
+          fixed top-0 left-0 h-full bg-[#FAFAFA] shadow-lg transition-all duration-300 ease-in-out z-40
           ${isOpen ? 'w-64' : 'w-0 md:w-16 lg:w-64'}
           overflow-hidden md:overflow-visible
         `}
@@ -52,16 +55,14 @@ export default function Sidebar() {
         )}
 
         <div className="p-4 flex items-center justify-center">
-          {/* Render tablet logo on smaller screens and desktop logo on larger screens */}
-          <img src={tabletLogo} alt="Tablet Logo" className="block md:hidden h-10" />
-          <img src={logo} alt="Vasitum Logo" className="hidden md:block h-10" />
-
+          <img src={tabletLogo} alt="Tablet Logo" className="block lg:hidden h-10" />
+          <img src={logo} alt="Vasitum Logo" className="hidden lg:block h-10" />
         </div>
 
         <nav className="mt-8">
           {["MAIN MENU", "OTHER"].map((section) => (
             <div key={section} className="mb-4">
-              <h2 className="px-4 text-xs font-semibold text-gray-500 mb-2 hidden lg:block">{section}</h2>
+              <h2 className="px-4 md:text-xs font-semibold text-gray-500 mb-2 hidden md:block text-[10px]">{section}</h2>
               {menuItems
                 .filter((item) => item.section === section)
                 .map((item, index) => (
@@ -89,7 +90,6 @@ export default function Sidebar() {
                         opacity: "1",
                       }}
                     />
-
                     <span className="hidden lg:inline font-poppins">{item.label}</span>
                   </NavLink>
                 ))}
