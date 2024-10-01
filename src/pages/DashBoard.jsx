@@ -9,21 +9,21 @@ import dropdwon from  '../assets/dropDwon.png'
 export default function Dashboard() {
   return (
     <Layout>
-    <div className="p-4 md:p-6 lg:p-8 bg-black-100 min-h-screen font-poppins ml-16 lg:ml-64 mt-16">
+    <div className="p-4 md:p-6 lg:p-8 bg-black-100 min-h-screen font-poppins md:ml-16 lg:ml-64 mt-16">
       <h1 className="text-xl md:text-2xl font-bold text-black mb-6">Dashboard</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div className="bg-pink-50 rounded-lg p-4">
+        <div className="bg-[#FFEFE7] rounded-lg p-4">
           <h2 className="text-base md:text-[18px] font-semibold text-black mb-2">Available Position</h2>
           <p className="text-2xl md:text-[36px] font-bold text-black mb-2">24</p>
           <p className="text-sm md:text-[16px] text-red-500">4 Urgently needed</p>
         </div>
-        <div className="bg-blue-50 rounded-lg p-4">
+        <div className="bg-[#E8F0FB] rounded-lg p-4">
           <h2 className="text-base md:text-[18px] font-semibold text-black mb-2">Job Open</h2>
           <p className="text-2xl md:text-[36px] font-bold text-black mb-2">10</p>
           <p className="text-sm md:text-[16px] text-blue-500">4 Active hiring</p>
         </div>
-        <div className="bg-purple-50 rounded-lg p-4">
+        <div className="bg-[#FDEBF9] rounded-lg p-4">
           <h2 className="text-base text-[18px] font-semibold text-black mb-2">New Employees</h2>
           <p className="text-2xl text-[36px] font-bold text-black mb-2">24</p>
           <p className="text-sm text-[16px] text-purple-500">4 Department</p>
@@ -53,7 +53,7 @@ export default function Dashboard() {
               </div>
               <div className='flex flex-col'>
               <img src={memberGraph} alt="Employee Graph" className="w-26 md:w-24 h-12 md:h-14" />
-              <p className="text-xs text-red-500 bg-red-100 inline-block px-2 py-1 rounded mt-2">+5% Past month</p>
+              <p className="text-xs text-[#686868] bg-[#FFEFE7] inline-block px-2 py-1 rounded mt-2">+5% Past month</p>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function Dashboard() {
               </div>
               <div className='flex flex-col'>
               <img src={talentGraph} alt="Employee Graph" className="w-26 md:w-24 h-12 md:h-14" />
-              <p className="text-xs text-red-500 bg-red-100 inline-block px-2 py-1 rounded mt-2">+2% Past month</p>
+              <p className="text-xs text-[#686868] bg-[#FFEFE7] inline-block px-2 py-1 rounded mt-2">+2% Past month</p>
               </div>
             </div>
           </div>
@@ -85,7 +85,6 @@ export default function Dashboard() {
             { title: 'Meeting HR Department', time: 'Yesterday, 12:30 PM' },
             { title: 'IT Department need two more talents for UX/UI Designer position', time: 'Yesterday, 09:15 AM' },
             { title: 'Outing schedule for every department', time: '5 Minutes ago' },
-            { title: 'Meeting HR Department', time: 'Yesterday, 12:30 PM' },
           ].map((item, index) => (
             <div key={index} className="bg-[#FAFAFA] border border-gray-300 rounded-lg p-3 mb-2 flex justify-between items-center">
               <div>
@@ -98,7 +97,7 @@ export default function Dashboard() {
               </div>
             </div>
           ))}
-          <div className='flex items-center justify-center border border-red-100 bg-slate-50 rounded-md'>
+          <div className='flex items-center justify-center bg-slate-50 rounded-md'>
           <button className="text-red-500 text-xs md:text-sm font-semibold">See All Announcement</button>
           </div>
         </div>
@@ -134,7 +133,7 @@ export default function Dashboard() {
                 <img src={more} alt="More" className="w-[20px] md:w-[24px] h-[20px] md:h-[24px]" />
               </div>
             </div>
-          <div className='flex items-center justify-center border border-red-100 bg-slate-50 rounded-sm'>
+          <div className='flex items-center justify-center  bg-slate-50 rounded-sm'>
           <button className="text-red-500 text-xs md:text-sm font-semibold">Create a New Schedule</button>
           </div>
         </div>
